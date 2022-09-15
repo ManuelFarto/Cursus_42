@@ -6,7 +6,7 @@
 #    By: mafarto- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/09 12:43:31 by mafarto-          #+#    #+#              #
-#    Updated: 2022/09/13 17:58:41 by mafarto-         ###   ########.fr        #
+#    Updated: 2022/09/15 20:01:02 by mafarto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,16 +21,18 @@ CFLAGS =  -Werror -Wall -Wextra -g
 RM = rm -f
 
 SRCS	= ft_isalpha.c\
-		  ft_isdigit.c \
-		  ft_isalnum.c \
-		  ft_isascii.c \
-		  ft_isprint.c \
-		  ft_toupper.c \
-		  ft_tolower.c \
-		  ft_strlen.c \
-		  ft_strlcpy.c \
-		  ft_strlcat.c \
-		  ft_strchr.c \
+		  ft_isdigit.c\
+		  ft_isalnum.c\
+		  ft_isascii.c\
+		  ft_isprint.c\
+		  ft_toupper.c\
+		  ft_tolower.c\
+		  ft_strlen.c\
+		  ft_strlcpy.c\
+		  ft_strlcat.c\
+		  ft_strchr.c\
+		  ft_strrchr.c\
+		  ft_strncmp.c\
 
 OBJ	= $(SRCS:.c=.o)
 

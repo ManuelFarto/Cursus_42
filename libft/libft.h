@@ -6,7 +6,7 @@
 /*   By: mafarto- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:38:45 by mafarto-          #+#    #+#             */
-/*   Updated: 2022/09/13 18:32:40 by mafarto-         ###   ########.fr       */
+/*   Updated: 2022/09/15 20:09:46 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 char	*ft_strchr(char *s, int c);
+char	*ft_strrchr(char *s, int c);
+int		ft_strncmp(char *s1, char *s2, size_t n);
 #endif
