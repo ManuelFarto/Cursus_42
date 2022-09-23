@@ -6,7 +6,7 @@
 /*   By: mafarto- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:38:45 by mafarto-          #+#    #+#             */
-/*   Updated: 2022/09/19 20:48:12 by mafarto-         ###   ########.fr       */
+/*   Updated: 2022/09/23 20:04:03 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,5 @@ char	*ft_strrchr(char *s, int c);
 int		ft_strncmp(char *s1, char *s2, size_t n);
 char	*ft_strnstr(char *str, char *to_find, size_t n);
 int		ft_atoi(const char *str);
+void	*ft_memset(void *b, int c, size_t len);
 #endif
