@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mafarto- <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/09 12:43:31 by mafarto-          #+#    #+#              #
-#    Updated: 2022/09/23 20:03:28 by mafarto-         ###   ########.fr        #
+#    Updated: 2022/09/26 18:26:14 by mafarto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,8 @@ SRCS	= ft_isalpha.c\
 		  ft_strnstr.c\
 		  ft_atoi.c\
 		  ft_memset.c\
+		  ft_bzero.c\
+		  t_memcpy.c\
 
 OBJ	= $(SRCS:.c=.o)
 
