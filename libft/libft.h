@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/08 16:38:45 by mafarto-          #+#    #+#             */
-/*   Updated: 2022/09/26 20:32:47 by mafarto-         ###   ########.fr       */
+/*   Updated: 2022/10/03 21:06:58 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ int		ft_atoi(const char *str);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dsr, const void *src, size_t n);
-void	*ft_memcpy(void *dsr, const void *src, size_t n);
+void	*ft_memmove(void *dsr, const void *src, size_t n);
 #endif
