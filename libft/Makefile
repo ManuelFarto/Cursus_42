@@ -6,7 +6,7 @@
 #    By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/09 12:43:31 by mafarto-          #+#    #+#              #
-#    Updated: 2022/09/28 16:55:57 by mafarto-         ###   ########.fr        #
+#    Updated: 2022/10/04 20:02:02 by mafarto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,10 @@ SRCS	= ft_isalpha.c\
 		  ft_bzero.c\
 		  ft_memcpy.c\
 		  ft_memmove.c\
+		  ft_memchr.c\
+		  ft_memcmp.c\
+		  ft_calloc.c\
+		  ft_strdup.c\
 
 OBJ	= $(SRCS:.c=.o)
 
