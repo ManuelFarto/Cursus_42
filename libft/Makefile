@@ -6,7 +6,7 @@
 #    By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/09 12:43:31 by mafarto-          #+#    #+#              #
-#    Updated: 2022/10/12 17:38:50 by mafarto-         ###   ########.fr        #
+#    Updated: 2022/10/21 17:54:36 by mafarto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ SRCS	= ft_isalpha.c\
 		  ft_strjoin.c\
 		  ft_strtrim.c\
 		  ft_split.c\
-		  
+		  ft_itoa.c\
 
 OBJ	= $(SRCS:.c=.o)
 
