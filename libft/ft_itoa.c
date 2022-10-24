@@ -6,12 +6,12 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 17:54:51 by mafarto-          #+#    #+#             */
-/*   Updated: 2022/10/24 16:46:17 by mafarto-         ###   ########.fr       */
+/*   Updated: 2022/10/24 21:22:52 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
-#include <stdio.h>
+/* #include <stdio.h> */
 
 /* int	ft_intlen(int n)
 {
@@ -31,7 +31,7 @@
 		nb++;
 	}
 	return (nb);
-}*/
+} */
 int	ft_intlen(long m)
 {
 	int	lens;

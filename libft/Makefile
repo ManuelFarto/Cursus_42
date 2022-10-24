@@ -6,7 +6,7 @@
 #    By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/09 12:43:31 by mafarto-          #+#    #+#              #
-#    Updated: 2022/10/24 20:24:36 by mafarto-         ###   ########.fr        #
+#    Updated: 2022/10/24 21:09:18 by mafarto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,6 +53,7 @@ SRCS	= ft_isalpha.c\
 		  ft_putendl_fd.c\
 		  ft_putnbr_fd.c\
 		  ft_strmapi.c\
+		  ft_striteri.c\
 
 OBJ	= $(SRCS:.c=.o)
 
