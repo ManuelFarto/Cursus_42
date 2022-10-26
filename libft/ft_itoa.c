@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 17:54:51 by mafarto-          #+#    #+#             */
-/*   Updated: 2022/10/24 21:22:52 by mafarto-         ###   ########.fr       */
+/*   Updated: 2022/10/26 19:13:35 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,42 +47,43 @@ int	ft_intlen(long m)
 	return (lens);
 }
 
-char	*ft_itoa(long int n)
+char	*ft_itoa(int n)
 {
-	char	*dst;
-	int		len;
+	char		*dst;
+	int			len;
+	long int	nb;
 
-	len = ft_intlen(n);
+	nb = n;
+	len = ft_intlen(nb);
 	dst = (char *)malloc(((len) + 1) * sizeof(char));
 	if (!dst)
 		return (NULL);
 	dst[len--] = '\0';
-	if (n == 0)
+	if (nb == 0)
 		dst[0] = '0';
-	if (n < 0)
+	if (nb < 0)
 	{
 		dst[0] = '-';
-		n *= -1;
+		nb *= -1;
 	}
-	while (n > 0)
+	while (nb > 0)
 	{
-		dst[len--] = (n % 10) + '0';
-		n /= 10;
+		dst[len--] = (nb % 10) + '0';
+		nb /= 10;
 	}
 	return (dst);
 }
 
 /*int	main()
 {
-	int	n = -62300000;
+	int	n = -623;
 	char	*res = ft_itoa(n);
 
 	printf("result: %s\n", res);
 	return (0);
-}
+}*/
 
-
-
+/*
 char	*ft_itoa(long int n)
 {
 	char	*s;
