@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:23:38 by mafarto-          #+#    #+#             */
-/*   Updated: 2022/10/30 21:11:04 by mafarto-         ###   ########.fr       */
+/*   Updated: 2022/10/30 21:25:04 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int	ft_printf(char const *str, ...)
 int	main()
 {
 	char	a = 'b';
-	ft_printf("La letra es: %c vvhg\n", a);
-	printf("La letra es: %c vvhg\n", a);
+	char	*str = NULL;
+	ft_printf("La letra es: %c vvhg %s \n", a, str);
+	printf("La letra es: %c vvhg %s \n", a, str);
 	return (0);
 }

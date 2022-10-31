@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/30 20:41:01 by mafarto-          #+#    #+#             */
-/*   Updated: 2022/10/30 21:24:03 by mafarto-         ###   ########.fr       */
+/*   Created: 2022/10/31 16:52:51 by mafarto-          #+#    #+#             */
+/*   Updated: 2022/10/31 16:52:52 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"printf.h"
+#include"prinf.h"
 
-int	ft_putstr(char *s)
+void	ft_putnbr(int n)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return (write(1, "(null)", 6));
-	while (s[i])
+	if (n == -2147483648)
 	{
-		ft_putchar(s[i]);
-		i++;
+		ft_putstr("-2147483648");
+		return ;
 	}
-	return (i);
+	else
+	{
+		if (n < 0)
+		{
+			n *= -1;
+			ft_putchar('-');
+		}
+		if (n > 9)
+		{
+			ft_putnbr_fd((n / 10));
+		}
+		ft_putchar_fd((n % 10) + '0');
+	}
 }
