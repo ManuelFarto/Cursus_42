@@ -1,35 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/31 16:52:51 by mafarto-          #+#    #+#             */
-/*   Updated: 2022/11/09 17:04:55 by mafarto-         ###   ########.fr       */
+/*   Created: 2022/10/31 19:43:10 by mafarto-          #+#    #+#             */
+/*   Updated: 2022/11/09 17:05:07 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"ft_printf.h"
+#include "ft_printf.h"
 
-int	ft_putnbr(int n, char *base)
+int	ft_strlen(char *str)
 {
-	int		b;
-	long	nb;
+	int	i;
 
-	if (ft_strlen(base) == 16)
-		nb = (unsigned int) n;
-	else
-		nb = n;
-	b = ft_strlen(base);
-	if (nb < 0)
-	{
-		nb *= -1;
-		ft_putchar('-');
-	}
-	if (nb > ft_strlen(base) -1)
-	{
-		ft_putnbr((nb / b), base);
-	}
-	return (ft_putchar(base[nb % b]));
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

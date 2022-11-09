@@ -6,24 +6,30 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:23:38 by mafarto-          #+#    #+#             */
-/*   Updated: 2022/10/30 21:25:04 by mafarto-         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:10:11 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"printf.h"
+#include"ft_printf.h"
 #include<stdio.h>
 
 int	ft_conver(va_list ap, char ch)
 {
-	if (ch == 'c')
-	{
-		ft_putchar(va_arg(ap, int));
-		return (0);
-	}
+	if (ch == '%')
+		return (ft_putchar(va_arg(ap, int)));
+	else if (ch == 'c')
+		return (ft_putchar(va_arg(ap, int)));
 	else if (ch == 's')
-	{
-		ft_putstr(va_arg(ap, char *));
-	}
+		return (ft_putstr(va_arg(ap, char *)));
+	else if (ch == 'd')
+		return (ft_putnbr(va_arg(ap, int), "0123456789"));
+	else if (ch == 'i')
+		return (ft_putnbr(va_arg(ap, int), "0123456789"));
+	else if (ch == 'x')
+		return (ft_putnbr(va_arg(ap, int), "0123456789abcdef"));
+	else if (ch == 'X')
+		return (ft_putnbr(va_arg(ap, int), "0123456789ABCDEF"));
+	return (0);
 }
 
 int	ft_printf(char const *str, ...)
@@ -33,6 +39,8 @@ int	ft_printf(char const *str, ...)
 
 	i = 0;
 	va_start(ap, str);
+	if (!str)
+		return (0);
 	while (str[i])
 	{
 		if (str[i] == '%')
@@ -47,11 +55,12 @@ int	ft_printf(char const *str, ...)
 	return (i);
 }
 
-int	main()
+/* int	main()
 {
 	char	a = 'b';
-	char	*str = NULL;
-	ft_printf("La letra es: %c vvhg %s \n", a, str);
-	printf("La letra es: %c vvhg %s \n", a, str);
+	char	*str = "hola";
+	int		i = -2147483;
+	ft_printf("La letra es: %c vvhg %s askdgahsg %i eeeee %x \n", a, str, i, i);
+	printf("La letra es: %c vvhg %s askdgahsg %i eeeee %x \n", a, str, i, i);
 	return (0);
-}
+} */

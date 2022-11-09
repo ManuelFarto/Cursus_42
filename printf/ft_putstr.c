@@ -6,11 +6,11 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/30 20:41:01 by mafarto-          #+#    #+#             */
-/*   Updated: 2022/10/30 21:24:03 by mafarto-         ###   ########.fr       */
+/*   Updated: 2022/11/09 17:05:01 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"printf.h"
+#include"ft_printf.h"
 
 int	ft_putstr(char *s)
 {
