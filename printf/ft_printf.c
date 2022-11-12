@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:23:38 by mafarto-          #+#    #+#             */
-/*   Updated: 2022/11/12 12:12:17 by mafarto-         ###   ########.fr       */
+/*   Updated: 2022/11/12 14:58:39 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	ft_conver(va_list ap, char ch)
 		ft_putnbr(va_arg(ap, int), "0123456789ABCDEF", &len, 'X');
 	else if (ch == 'p')
 	{
-		ft_putnbr(va_arg(ap, unsigned long long int),
-			"0123456789abcdef", &len, 'p');
+		len += ft_putstr("0x");
+		ft_putpunt(va_arg(ap, size_t), &len);
 	}
 	else if (ch == 'u')
 		ft_putnbr(va_arg(ap, int), "0123456789", &len, 'u');
@@ -74,11 +74,9 @@ int	ft_printf(char const *str, ...)
 	char	*str = "hola";
 	int		len, len3;
 	int		i = -2147481;
-	len = ft_printf("hola %c", a);
-	len3 = printf("%c \n l", a);
+	len = ft_printf("El puntero: %p \n", (void *)-145234);
+	len3 = printf("El puntero: %p \n", (void *)-145234);
 	printf("%d y %d\n", len, len3);
-	printf("Exa: %llx", 18446744073709537093);
-	printf("El puntero es: %p \n", (void *)-14523);
-	ft_printf("El puntero es: %p", (void *)-14523);
+	printf("%d", len - len3);
 	return (0);
 } */

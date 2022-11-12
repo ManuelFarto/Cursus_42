@@ -6,7 +6,7 @@
 #    By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/30 20:11:12 by mafarto-          #+#    #+#              #
-#    Updated: 2022/11/09 17:05:15 by mafarto-         ###   ########.fr        #
+#    Updated: 2022/11/12 14:39:00 by mafarto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS	=	ft_printf.c\
 			ft_putstr.c\
 			ft_putnbr.c\
 			ft_strlen.c\
+			ft_putpunt.c\
 
 OBJ	= $(SRCS:.c=.o)
 
