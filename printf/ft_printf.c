@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:23:38 by mafarto-          #+#    #+#             */
-/*   Updated: 2022/11/14 17:43:31 by mafarto-         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:00:08 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,28 +57,21 @@ int	ft_printf(char const *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			len += ft_conver(ap, str[i + 1]);
-			i++;
+			if (str [i + 1] != 0)
+				len += ft_conver(ap, str[++i]);
+			else
+				return (len);
 		}
-		else
-		{
+		else if (str[i] != '%')
 			len += ft_putchar(str[i]);
-			i++;
-		}
+		i++;
 	}
 	va_end (ap);
 	return (len);
 }
-
-/* int	main()
+/* 
+int main()
 {
-	char	a = '0';
-	char	*str = "hola";
-	int		len, len3;
-	int		i = -2147481;
-	len = ft_printf("El puntero: %p \n", (void *)-145234);
-	len3 = printf("El puntero: %p \n", (void *)-145234);
-	printf("%d y %d\n", len, len3);
-	printf("%d", len - len3);
-	return (0);
+	ft_printf("%%");
+	return (1);
 } */
