@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/27 20:23:38 by mafarto-          #+#    #+#             */
-/*   Updated: 2022/12/13 18:00:08 by mafarto-         ###   ########.fr       */
+/*   Updated: 2022/12/13 18:08:31 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,3 @@ int	ft_printf(char const *str, ...)
 	va_end (ap);
 	return (len);
 }
-/* 
-int main()
-{
-	ft_printf("%%");
-	return (1);
-} */
