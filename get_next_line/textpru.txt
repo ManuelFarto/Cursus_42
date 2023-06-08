@@ -1,6 +1,6 @@
 "Get next line" es
 un término que se utiliza
- en la programación para referirse a una función que lee una línea de un archivo de texto y la devuelve como una cadena de caracteres. Esta funci
+ de un archivo de texto y la devuelve como una cadena de caracteres. Esta funcien la programación para referirse a una función que lee una línea
  
  ón es especialmente útil cuando se necesita procesar un archivo de 
  texto línea por línea, ya que permite leer y procesar cada línea en orden secuencial.

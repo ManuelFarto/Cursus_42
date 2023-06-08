@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 17:39:55 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/05/24 16:27:39 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/05/26 19:51:54 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 25
+# define BUFFER_SIZE 1
 #endif
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(const char *s, char c)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i])
+	if (!s)
+		return (0);
+	while (s[i] != c && s[i])
 		i ++;
 	return (i);
 }
+
+char	*ft_strdup(const char *s1)
+{
+	char	*s2;
+	size_t	dstsize;
+	size_t	i;
+
+	i = -1;
+	dstsize = ft_strlen(s1, 0) + ft_strlen(s2, 0) + 1;
+	s2 = malloc((ft_strlen(s1, 0) + 1));
+	if (s1 == NULL)
+		return (NULL);
+	if (dstsize != 0)
+	{
+		while (s1[++i] && --dstsize > 0)
+			s2[i] = s1[i];
+		s2[i] = '\0';
+	}
+	return (s2);
+}
+
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -39,8 +62,9 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	else if (!s1)
 		return ((char *)s2);
-	dst = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
-	dstsize = (ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char);
+	dst = (char *)malloc((ft_strlen(s1, 0) + ft_strlen(s2, 0) + 1)
+			* sizeof(char));
+	dstsize = (ft_strlen(s1, 0) + ft_strlen(s2, 0) + 1) * sizeof(char);
 	if (!dst)
 		return (NULL);
 	i = -1;
@@ -64,9 +88,12 @@ char	*ft_read(int fd, char *str, char *line)
 		return (0);
 	str[rea] = '\0';
 	tmp = line;
-	free(line);
-	line = NULL;
+	if (!line)
+	{
+		return (ft_strdup(str));
+	}
 	line = ft_strjoin(tmp, str);
+	/* printf("line >>>> %s", line); */
 	return (line);
 }
 
@@ -75,61 +102,52 @@ int	ft_comper(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == '\n')
-			return (1);
+	if (!str)
+		return (0);
+	while (str[i] && str[i] != '\n')
 		i++;
-	}
-	return (0);
+	return (i);
 }
 
 char	*get_next_line(int fd)
 {
 	char		str[BUFFER_SIZE + 1];
 	static char	*line;
-	int			nu;
 	ssize_t		rea;
+	char		*tmp;
 
 	if (!BUFFER_SIZE)
 		return (NULL);
-	line = NULL;
-	rea = read(fd, str, BUFFER_SIZE);
-	if (rea <= 0)
-		return (0);
 	str[BUFFER_SIZE] = '\0';
-	if (!line)
-		line = ft_strjoin("", str);
-	nu = -1;
-	while (ft_comper(line) == 0)
+	while (1)
 	{
 		line = ft_read(fd, str, line);
+		/* printf("\nline gnl>>>>> %s\n", line); */
+		if (ft_comper(line) > 1)
+		{
+			tmp = ft_strdup(line);
+			break ;
+		}
 	}
-	return (line);
+	return (tmp);
 }
 
 int	main(void)
 {
 	int	fd;
-	//int	fd2;
 	int	i = 0;
 	char *str;
-	//char *str2;
-	fd = open("textpru.txt", O_RDWR);
-	//fd2 = open("texto2", O_RDWR);
-	str = get_next_line(fd);
-	printf("\n&%s&\n", str);
-	str = get_next_line(fd);
-	printf("\n&%s&", str);
-	free(str);
-	//str2 = get_next_line(fd2);
-	//printf("&\n%s&\n", str2);
-	//str2 = get_next_line(fd2);
-	//printf("&\n%s&\n", str2);
-	close(fd);
-	//close(fd2);
-}
 
-//TO DO: 
-// - Primero que te recorte la linea (line) hasta el salto de linea
-// - Segundo guardar el resto en una variable estática
+	fd = open("textpru.txt", O_RDONLY);
+	str = get_next_line(fd);
+	while (str != NULL)
+	{
+		printf("\nIntento ====> %d\n", ++i);
+		printf("%s", str);
+		free (str);
+		str = get_next_line(fd);
+	}
+
+
+	close(fd);
+}
