@@ -15,17 +15,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
+# define BUFFER_SIZE 15
 #endif
 
-size_t	ft_strlen(const char *s, char c)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
 	i = 0;
-	if (!s)
-		return (0);
-	while (s[i] != c && s[i])
+	while (s && s[i])
 		i ++;
 	return (i);
 }
@@ -33,20 +31,18 @@ size_t	ft_strlen(const char *s, char c)
 char	*ft_strdup(const char *s1)
 {
 	char	*s2;
-	size_t	dstsize;
-	size_t	i;
+	int		n;
 
-	i = -1;
-	dstsize = ft_strlen(s1, 0) + ft_strlen(s2, 0) + 1;
-	s2 = malloc((ft_strlen(s1, 0) + 1));
+	n = 0;
 	if (s1 == NULL)
 		return (NULL);
-	if (dstsize != 0)
+	s2 = malloc((ft_strlen(s1) + 1) * sizeof(char));
+	while (s1[n])
 	{
-		while (s1[++i] && --dstsize > 0)
-			s2[i] = s1[i];
-		s2[i] = '\0';
+		s2[n] = s1[n];
+		n++;
 	}
+	s2[n] = '\0';
 	return (s2);
 }
 
@@ -61,10 +57,9 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (!s1 && !s2)
 		return (NULL);
 	else if (!s1)
-		return ((char *)s2);
-	dst = (char *)malloc((ft_strlen(s1, 0) + ft_strlen(s2, 0) + 1)
-			* sizeof(char));
-	dstsize = (ft_strlen(s1, 0) + ft_strlen(s2, 0) + 1) * sizeof(char);
+		return (ft_strdup(s2));
+	dst = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	dstsize = (ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char);
 	if (!dst)
 		return (NULL);
 	i = -1;
@@ -78,61 +73,87 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (dst);
 }
 
-char	*ft_read(int fd, char *str, char *line)
+int	ft_comp(char *stat)
 {
-	ssize_t	rea;
-	char	*tmp;
+	int	cont;
 
-	rea = read(fd, str, BUFFER_SIZE);
-	if (rea <= 0)
-		return (0);
-	str[rea] = '\0';
-	tmp = line;
-	if (!line)
-	{
-		return (ft_strdup(str));
-	}
-	line = ft_strjoin(tmp, str);
-	/* printf("line >>>> %s", line); */
-	return (line);
+	cont = 0;
+	if (!stat)
+		return (-1);
+	while (stat[cont] && stat[cont] != '\n')
+		cont++;
+	if (stat[cont] == '\n')
+		return (cont);
+	return (-1);
 }
 
-int	ft_comper(char *str)
+char	*ft_read(int fd, char *str, char *stat)
 {
-	int	i;
+	int		readed;
+	char	*tmp;
 
-	i = 0;
+	readed = 1;
+	str = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!str)
-		return (0);
-	while (str[i] && str[i] != '\n')
-		i++;
-	return (i);
+		return (NULL);
+	while (readed > 0  && ft_comp(stat) == -1 )
+	{
+		readed = read(fd, str, BUFFER_SIZE);
+		if (readed == -1)
+			return (NULL);
+		str[readed] = '\0';
+		tmp = ft_strjoin(stat, str);
+		if (stat)
+			free(stat);
+		stat = tmp;
+	}
+	return (free(str), stat);
+}
+
+char	*ft_cut(int size, char **stat)
+{
+	char	*tmp;
+	char	*stat2;
+	int		num;
+
+	num = 0;
+	tmp = malloc((size + 2) * sizeof(char));
+	if (!tmp)
+		return (NULL);
+	while (num <= size)
+	{
+		tmp[num] = stat[0][num];
+		num++;
+	}
+	tmp[num] = '\0';
+	stat2 = ft_strdup(&stat[0][size + 1]);
+	free(stat[0]);
+	stat[0] = stat2;
+	return (tmp);
 }
 
 char	*get_next_line(int fd)
 {
-	char		str[BUFFER_SIZE + 1];
+	char		*str;
 	static char	*line;
-	ssize_t		rea;
-	char		*tmp;
+	int			size;
 
 	if (!BUFFER_SIZE)
 		return (NULL);
-	str[BUFFER_SIZE] = '\0';
-	while (1)
+	line = ft_read(fd, str, line);
+	size = ft_comp(line);
+	if (line[0] == '\0')
+		return (NULL);
+	if (size == -1 || ft_strlen(line) == size + 1)
 	{
-		line = ft_read(fd, str, line);
-		/* printf("\nline gnl>>>>> %s\n", line); */
-		if (ft_comper(line) > 1)
-		{
-			tmp = ft_strdup(line);
-			break ;
-		}
+		str = line;
+		line = NULL;
+		return (str);
 	}
-	return (tmp);
+	return (ft_cut(size, &line));
 }
 
-int	main(void)
+/* int	main(void)
 {
 	int	fd;
 	int	i = 0;
@@ -143,11 +164,10 @@ int	main(void)
 	while (str != NULL)
 	{
 		printf("\nIntento ====> %d\n", ++i);
-		printf("%s", str);
+		printf("returned: %s", str);
 		free (str);
 		str = get_next_line(fd);
 	}
-
-
+		free (str);
 	close(fd);
-}
+} */
