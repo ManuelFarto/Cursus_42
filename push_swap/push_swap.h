@@ -30,7 +30,11 @@ size_t	ft_strlen(const char *s);
 void	ft_free(char **trash);
 int		ft_norep(char **nums);
 int		ft_numover(long *nums, int size);
+int     ft_isorder(int size, int *index);
 int		*ft_index(int size, long *nums);
 void    ft_alg(int size, int *index);
+void    ft_sa(int *index);
+void    ft_ra(int size, int *index);
+void    ft_rra(int size, int *index);
 
 #endif

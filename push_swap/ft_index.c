@@ -16,10 +16,10 @@ int	ft_isorder(int size, int *index)
 {
 	int	i;
 	
-	i = 0;
+	i = 1;
 	while (size > i)
 	{
-		if (i != index[i])
+		if (index[i - 1] < index[i])
 			return (0);
 		i++;
 	}	
@@ -33,7 +33,7 @@ void	ft_bzero(int *s, int n)
 	i = 0;
 	while (n > i)
 	{
-		s[i] = -1;
+		s[i] = 0;
 		i++;
 	}
 }
@@ -43,7 +43,6 @@ int	*ft_index(int size, long *nums)
 	int	*dst;
 	int	i;
 	int	j;
-	int min;
 
 	dst = malloc(sizeof(int) * size);
 	if (dst == NULL)
@@ -52,15 +51,15 @@ int	*ft_index(int size, long *nums)
 	j = 0;
 	while (j < size)
 	{
-		min = 0;
-		i = 0;
+		i = j + 1;
 		while (i < size)
 		{
-			if (nums[i] < nums[min] && dst[i] == -1)
-				min = i;
+			if (nums[i] < nums[j])
+				dst[j] += 1;
+			else
+				dst[i] += 1;
 			i++;
 		}
-		dst[min] = j;
 		j++;
 	}
 	free(nums);

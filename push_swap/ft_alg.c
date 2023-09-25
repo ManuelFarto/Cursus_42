@@ -12,7 +12,30 @@
 
 #include "push_swap.h"
 
+void    ft_algthree(int size, int *index)
+{
+    if (index[0] == 1 && index[1] == 0)
+        ft_sa(index);
+    else if (index[0] == 2 && index[1] == 1)
+    {
+        ft_sa(index);
+        ft_rra(size, index);
+    }
+    else if (index[0] == 2 && index[1] == 0)
+        ft_ra(size, index);
+    else if (index[0] == 0 && index[1] == 2)
+    {
+        ft_sa(index);
+        ft_ra(size, index);
+    }
+    else
+    {
+        ft_rra(size, index);
+    }
+}
+
 void    ft_alg(int size, int *index)
 {
-    
+    if (size == 3)
+        return (ft_algthree(size, index));
 }

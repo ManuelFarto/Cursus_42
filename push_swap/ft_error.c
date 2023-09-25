@@ -52,7 +52,8 @@ int	ft_norep(char **nums)
         j = i + 1;
         while (nums[j])
         {
-            if (ft_strncmp(nums[i], nums[j], ft_strlen(nums[i])) == 0)
+            if (ft_strncmp(nums[i], nums[j], ft_strlen(nums[i])) == 0 &&
+					ft_strlen(nums[i]) == ft_strlen(nums[j]))
                 return 0;
             j++;
         }

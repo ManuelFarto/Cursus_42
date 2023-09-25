@@ -52,4 +52,5 @@ void *ft_push_swap(int size, char **argv)
 	index = ft_index(size, nums);
 	ft_alg(size, index);
 	free(index);
+	return("");
 }
