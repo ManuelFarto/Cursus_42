@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 19:26:19 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/10/16 10:14:03 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/10/16 10:20:41 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ void	ft_free(char **trash)
 	while (trash[i])
 	{
 		free(trash[i]);
-		trash[i] = '\0';
+		trash[i] = 0;
 		i++;
 	}
 	free(trash);
-	trash = '\0';
+	trash = 0;
 }

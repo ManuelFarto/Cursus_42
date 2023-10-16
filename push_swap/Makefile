@@ -6,7 +6,7 @@
 #    By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 16:45:09 by mafarto-          #+#    #+#              #
-#    Updated: 2023/09/13 10:42:05 by mafarto-         ###   ########.fr        #
+#    Updated: 2023/10/16 12:16:49 by mafarto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,16 +24,16 @@ RM = rm -f
 
 WHT = \033[1;37m
 
-SRCS	= main.c\
-		  ft_error.c\
-		  push_swap.c\
-		  ft_split.c\
-		  ft_atol.c\
-		  ft_free.c\
-		  ft_index.c\
-		  ft_alg.c\
-		  ft_movea.c\
-		  ft_moveb.c\
+SRCS	=	main.c\
+			ft_error.c\
+			push_swap.c\
+			ft_split.c\
+			ft_atol.c\
+			ft_free.c\
+			ft_index.c\
+			ft_alg.c\
+			ft_movea.c\
+			ft_moveb.c\
 
 OBJ	= $(SRCS:.c=.o)
 

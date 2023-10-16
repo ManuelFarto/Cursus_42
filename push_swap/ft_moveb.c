@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 10:41:55 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/10/16 10:15:24 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/10/16 12:28:52 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,3 +53,20 @@ void	ft_rrb(int size, int *index)
 	index[0] = temp;
 	write(1, "rrb\n", 4);
 }
+
+void	ft_pb(int size, int *index, int *stackb)
+{
+	int	temp;
+	int	i;
+
+	if (!stackb)
+		return ;
+	temp = stackb[0];
+	i = size - 1;
+	while (0 < i)
+	{
+		index[i] = index[i - 1];
+		i--;
+	}
+	index[0] = temp;
+	write(1, "pb\n", 3);

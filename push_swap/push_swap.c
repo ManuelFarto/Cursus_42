@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 11:50:16 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/10/16 10:13:32 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/10/16 10:28:19 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ long	*ft_safe_num(int size, char **argv)
 	cont = 0;
 	i = 0;
 	nums = malloc(sizeof(long) * size);
+	if (!nums)
+		return (0);
 	while (argv[cont])
 	{
 		nums[i] = ft_atol(argv[cont]);
