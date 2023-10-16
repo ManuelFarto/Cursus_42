@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 13:46:25 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/09/04 16:50:27 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/10/16 10:12:19 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlen(const char *s)
 
 	i = 0;
 	while (s[i])
-		i ++;
+		i++;
 	return (i);
 }
 
@@ -48,24 +48,24 @@ int	ft_norep(char **nums)
 
 	i = 0;
 	while (nums[i])
-    {
-        j = i + 1;
-        while (nums[j])
-        {
-            if (ft_strncmp(nums[i], nums[j], ft_strlen(nums[i])) == 0 &&
-					ft_strlen(nums[i]) == ft_strlen(nums[j]))
-                return 0;
-            j++;
-        }
-        i++;
-    }
-    return 1;
+	{
+		j = i + 1;
+		while (nums[j])
+		{
+			if (ft_strncmp(nums[i], nums[j], ft_strlen(nums[i])) == 0
+				&& ft_strlen(nums[i]) == ft_strlen(nums[j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }
 
-int ft_numerror(char *nums)
+int	ft_numerror(char *nums)
 {
-	int cont;
-	
+	int	cont;
+
 	cont = 0;
 	while (ft_isalnum(nums[cont]) == 1 && nums[cont])
 	{

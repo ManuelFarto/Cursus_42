@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:41:04 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/09/13 10:29:49 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/10/16 10:14:08 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_isorder(int size, int *index)
 {
 	int	i;
-	
+
 	i = 1;
 	while (size > i)
 	{

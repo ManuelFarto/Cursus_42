@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 11:50:16 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/09/13 10:38:12 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/10/16 10:13:32 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 long	*ft_safe_num(int size, char **argv)
 {
 	long	*nums;
-	int	cont;
-	int	i;
+	int		cont;
+	int		i;
 
 	cont = 0;
 	i = 0;
@@ -30,7 +30,7 @@ long	*ft_safe_num(int size, char **argv)
 	return (nums);
 }
 
-void *ft_push_swap(int size, char **argv)
+void	*ft_push_swap(int size, char **argv)
 {
 	int		cont;
 	long	*nums;
@@ -39,7 +39,7 @@ void *ft_push_swap(int size, char **argv)
 	cont = 0;
 	while (argv[cont])
 	{
-		if(ft_numerror(argv[cont]) == 1)
+		if (ft_numerror(argv[cont]) == 1)
 			cont++;
 		else
 			return (write(2, "Error\n", 6), "");
@@ -48,9 +48,9 @@ void *ft_push_swap(int size, char **argv)
 		return (write(2, "Error\n", 6), "");
 	nums = ft_safe_num(size, argv);
 	if (ft_numover(nums, size) == 0)
-		return(free(nums), write(2, "Error\n", 6), "");
+		return (free(nums), write(2, "Error\n", 6), "");
 	index = ft_index(size, nums);
 	ft_alg(size, index);
 	free(index);
-	return("");
+	return ("");
 }
