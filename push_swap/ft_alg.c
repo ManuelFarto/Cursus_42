@@ -36,6 +36,11 @@ void    ft_algthree(int size, int *index)
 
 void    ft_alg(int size, int *index)
 {
-    if (size == 3)
+    if (ft_isorder(size, index) == 1)
+        return ;
+    else if (size == 2)
+        ft_rra(size, index);
+    else if (size == 3)
         return (ft_algthree(size, index));
+    
 }

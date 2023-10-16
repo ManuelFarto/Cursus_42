@@ -42,13 +42,31 @@ void    ft_rra(int size, int *index)
     int temp;
     int i;
     
-    temp = index[size];
-    i = size;
-    while (size - 1 < i)
+    temp = index[size - 1];
+    i = size - 1;
+    while (0 < i)
     {
-        index[i] = index[i + 1];
+        index[i] = index[i - 1];
         i--;
     }
     index[0] = temp;
-    write(1, "rra\n", 3);
+    write(1, "rra\n", 4);
+}
+
+void    ft_pa(int size, int *index, int *stackb)
+{
+    int temp;
+    int i;
+    
+    if (!stackb)
+        return ;
+    temp = stackb[0];
+    i = size - 1;
+    while (0 < i)
+    {
+        index[i] = index[i - 1];
+        i--;
+    }
+    index[0] = temp;
+    write(1, "pa\n", 3);
 }

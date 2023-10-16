@@ -15,7 +15,6 @@
 void    ft_sb(int *index)
 {
     int temp;
-    
     temp = index[0];
     index [0] = index[1];
     index[1] = temp;
@@ -28,13 +27,13 @@ void    ft_rb(int size, int *index)
     int i;
     
     temp = index[0];
-    i = 0;
-    while (size - 1 > i)
+    i = 1;
+    while (size > i)
     {
-        index[i] = index[i + 1];
+        index[i - 1] = index[i];
         i++;
     }
-    index[size] = temp;
+    index[size - 1] = temp;
     write(1, "rb\n", 3);
 }
 
@@ -43,13 +42,13 @@ void    ft_rrb(int size, int *index)
     int temp;
     int i;
     
-    temp = index[size];
-    i = size;
-    while (size < i)
+    temp = index[size - 1];
+    i = size - 1;
+    while (0 < i)
     {
-        index[i] = index[i + 1];
+        index[i] = index[i - 1];
         i--;
     }
-    index[size] = temp;
-    write(1, "rrb\n", 3);
+    index[0] = temp;
+    write(1, "rrb\n", 4);
 }
