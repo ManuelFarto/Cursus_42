@@ -10,13 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <fcntl.h>
-#include <stdio.h>
-#include <stdlib.h>
-#ifndef BUFFER_SIZE
-# define BUFFER_SIZE 15
-#endif
+#include "get_next_line.h"
 
 size_t	ft_strlen(const char *s)
 {
@@ -37,6 +31,8 @@ char	*ft_strdup(const char *s1)
 	if (s1 == NULL)
 		return (NULL);
 	s2 = malloc((ft_strlen(s1) + 1) * sizeof(char));
+	if (!s2)
+		return (NULL);
 	while (s1[n])
 	{
 		s2[n] = s1[n];
@@ -45,7 +41,6 @@ char	*ft_strdup(const char *s1)
 	s2[n] = '\0';
 	return (s2);
 }
-
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -87,64 +82,26 @@ int	ft_comp(char *stat)
 	return (-1);
 }
 
-char	*ft_read(int fd, char *str, char *stat)
-{
-	int		readed;
-	char	*tmp;
-
-	readed = 1;
-	str = malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	while (readed > 0  && ft_comp(stat) == -1 )
-	{
-		readed = read(fd, str, BUFFER_SIZE);
-		if (readed == -1)
-			return (NULL);
-		str[readed] = '\0';
-		tmp = ft_strjoin(stat, str);
-		if (stat)
-			free(stat);
-		stat = tmp;
-	}
-	return (free(str), stat);
-}
-
-char	*ft_cut(int size, char **stat)
-{
-	char	*tmp;
-	char	*stat2;
-	int		num;
-
-	num = 0;
-	tmp = malloc((size + 2) * sizeof(char));
-	if (!tmp)
-		return (NULL);
-	while (num <= size)
-	{
-		tmp[num] = stat[0][num];
-		num++;
-	}
-	tmp[num] = '\0';
-	stat2 = ft_strdup(&stat[0][size + 1]);
-	free(stat[0]);
-	stat[0] = stat2;
-	return (tmp);
-}
-
 char	*get_next_line(int fd)
 {
 	char		*str;
 	static char	*line;
 	int			size;
 
-	if (!BUFFER_SIZE)
+	if (0 >= BUFFER_SIZE || 0 > fd)
 		return (NULL);
+	str = NULL;
 	line = ft_read(fd, str, line);
+	if (!line)
+		return (NULL);
 	size = ft_comp(line);
 	if (line[0] == '\0')
+	{
+		free(line);
+		line = NULL;
 		return (NULL);
-	if (size == -1 || ft_strlen(line) == size + 1)
+	}
+	if (size == -1 || (int)ft_strlen(line) == size + 1)
 	{
 		str = line;
 		line = NULL;
@@ -168,6 +125,6 @@ char	*get_next_line(int fd)
 		free (str);
 		str = get_next_line(fd);
 	}
-		free (str);
+	free (str);
 	close(fd);
 } */
