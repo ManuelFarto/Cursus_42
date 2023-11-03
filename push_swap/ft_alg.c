@@ -29,9 +29,7 @@ void	ft_algthree(int size, int *index)
 		ft_ra(size, index);
 	}
 	else
-	{
 		ft_rra(size, index);
-	}
 }
 
 void	ft_algfive(int size, int *index, int *stackb)
@@ -50,17 +48,13 @@ void	ft_algfive(int size, int *index, int *stackb)
 	if (i <= size)
 	{
 		while (i > 0)
-		{
 			ft_ra(size, index);
-		}
 	}
 	else
 	{
 		i = size - i;
 		while (i > 0)
-		{
 			ft_rra(size, index);
-		}
 	}
 }
 
