@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:41:04 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/10/16 10:14:08 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/03 10:50:53 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,14 @@ int	ft_isorder(int size, int *index)
 	return (1);
 }
 
-void	ft_bzero(int *s, int n)
+void	ft_bzero(int *s, int n, int o)
 {
 	int	i;
 
 	i = 0;
 	while (n > i)
 	{
-		s[i] = 0;
+		s[i] = o;
 		i++;
 	}
 }
@@ -47,7 +47,7 @@ int	*ft_index(int size, long *nums)
 	dst = malloc(sizeof(int) * size);
 	if (dst == NULL)
 		return (free(nums), write(2, "Error\n", 6), NULL);
-	ft_bzero(dst, size);
+	ft_bzero(dst, size, 1);
 	j = 0;
 	while (j < size)
 	{

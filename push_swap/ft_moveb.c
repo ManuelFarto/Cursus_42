@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 10:41:55 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/10/16 12:28:52 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/03 09:39:48 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_rrb(int size, int *index)
 	write(1, "rrb\n", 4);
 }
 
-void	ft_pb(int size, int *index, int *stackb)
+/* void	ft_pb(int size, int *index, int *stackb)
 {
 	int	temp;
 	int	i;
@@ -69,4 +69,4 @@ void	ft_pb(int size, int *index, int *stackb)
 		i--;
 	}
 	index[0] = temp;
-	write(1, "pb\n", 3);
+	write(1, "pb\n", 3); */

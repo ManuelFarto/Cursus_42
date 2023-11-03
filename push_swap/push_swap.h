@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 12:57:54 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/10/16 12:30:25 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/03 10:50:18 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_free(char **trash);
 int		ft_norep(char **nums);
 int		ft_numover(long *nums, int size);
 int		ft_isorder(int size, int *index);
-void	ft_bzero(int *s, int n);
+void	ft_bzero(int *s, int n, int o);
 int		*ft_index(int size, long *nums);
 void	ft_alg(int size, int *index);
 void	ft_sa(int *index);

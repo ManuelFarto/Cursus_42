@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 10:41:39 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/10/16 10:30:55 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/03 10:51:37 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,20 @@ void	ft_pa(int size, int *index, int *stackb)
 {
 	int	temp;
 	int	i;
+	int	temp2;
 
 	if (!stackb)
 		return ;
 	temp = stackb[0];
-	i = size - 1;
-	while (0 < i)
+	temp2 = index[0];
+	i = 0;
+	while ((size - 1) > i)
 	{
-		index[i] = index[i - 1];
-		i--;
+		index[i] = index[i + 1];
+		i++;
 	}
-	index[0] = temp;
+	index[size - 1] = 0;
+	/* index[0] = temp; */
+	stackb[0] = temp2;
 	write(1, "pa\n", 3);
 }
