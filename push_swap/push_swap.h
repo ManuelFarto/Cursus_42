@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 12:57:54 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/03 10:50:18 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/03 11:43:51 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ void	ft_alg(int size, int *index);
 void	ft_sa(int *index);
 void	ft_ra(int size, int *index);
 void	ft_rra(int size, int *index);
-void	ft_pa(int size, int *index, int *stackb);
-void	ft_sb(int *index);
-void	ft_rb(int size, int *index);
-void	ft_rrb(int size, int *index);
-void	ft_pb(int size, int *stackb, int *index);
+void	ft_pb(int size, int *index, int *stackb);
+void	ft_sb(int *stackb);
+void	ft_rb(int size, int *stackb);
+void	ft_rrb(int size, int *stackb);
+void	ft_pa(int size, int *stackb, int *index);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 10:35:19 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/03 10:50:33 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/03 13:07:01 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,31 @@ void	ft_algthree(int size, int *index)
 
 void	ft_algfive(int size, int *index, int *stackb)
 {
-	for (int x = 0; x < size; x++)
+	int	i;
+	int	min;
+
+	i = 0;
+	min = 1;
+	while (i < size)
 	{
-		printf("stackA: %d || stackB: %d\n", index[x], stackb[x]);
+		if (index[i] <= min)
+			min = index[i];
+		i++;
 	}
-	ft_pa(size, index, stackb);
-	for (int x = 0; x < size; x++)
+	if (i <= size)
 	{
-		printf("stackA: %d || stackB: %d\n", index[x], stackb[x]);
+		while (i > 0)
+		{
+			ft_ra(size, index);
+		}
+	}
+	else
+	{
+		i = size - i;
+		while (i > 0)
+		{
+			ft_rra(size, index);
+		}
 	}
 }
 

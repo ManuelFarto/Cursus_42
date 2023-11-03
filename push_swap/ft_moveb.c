@@ -6,67 +6,78 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 10:41:55 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/03 09:39:48 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/03 12:01:59 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sb(int *index)
+void	ft_sb(int *stackb)
 {
 	int	temp;
 
-	temp = index[0];
-	index [0] = index[1];
-	index[1] = temp;
+	temp = stackb[0];
+	stackb[0] = stackb[1];
+	stackb[1] = temp;
 	write(1, "sb\n", 3);
 }
 
-void	ft_rb(int size, int *index)
+void	ft_rb(int size, int *stackb)
 {
 	int	temp;
 	int	i;
 
-	temp = index[0];
+	temp = stackb[0];
 	i = 1;
 	while (size > i)
 	{
-		index[i - 1] = index[i];
+		stackb[i - 1] = stackb[i];
 		i++;
 	}
-	index[size - 1] = temp;
+	stackb[size - 1] = temp;
 	write(1, "rb\n", 3);
 }
 
-void	ft_rrb(int size, int *index)
+void	ft_rrb(int size, int *stackb)
 {
 	int	temp;
 	int	i;
 
-	temp = index[size - 1];
+	temp = stackb[size - 1];
 	i = size - 1;
 	while (0 < i)
 	{
-		index[i] = index[i - 1];
+		stackb[i] = stackb[i - 1];
 		i--;
 	}
-	index[0] = temp;
+	stackb[0] = temp;
 	write(1, "rrb\n", 4);
 }
 
-/* void	ft_pb(int size, int *index, int *stackb)
+
+void	ft_pb(int size, int *index, int *stackb)
 {
 	int	temp;
 	int	i;
+	int	temp2;
 
 	if (!stackb)
 		return ;
 	temp = stackb[0];
+	temp2 = index[0];
+	i = 0;
+	while ((size - 1) > i)
+	{
+		index[i] = index[i + 1];
+		i++;
+	}
 	i = size - 1;
 	while (0 < i)
 	{
-		index[i] = index[i - 1];
+		stackb[i] = stackb[i - 1];
 		i--;
 	}
-	index[0] = temp;
-	write(1, "pb\n", 3); */
+	index[size - 1] = 0;
+	stackb[0] = temp2;
+	write(1, "pb\n", 3);
+}
