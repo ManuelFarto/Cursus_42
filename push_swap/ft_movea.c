@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 10:41:39 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/03 12:02:09 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/09 01:12:05 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,11 @@ void	ft_rra(int size, int *index)
 
 void	ft_pa(int size, int *stackb, int *index)
 {
-	int	temp;
 	int	i;
 	int	temp2;
 
 	if (!index)
 		return ;
-	temp = index[0];
 	temp2 = stackb[0];
 	i = 0;
 	while ((size - 1) > i)
