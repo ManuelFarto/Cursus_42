@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 12:57:27 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/10/16 09:57:42 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:50:17 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 
 	size = argc;
 	if (size <= 1)
-		return (write(2, "Error\n", 6));
+		return (0);
 	else if (size == 2)
 	{
 		trash = ft_split(argv[1], 32, &size);

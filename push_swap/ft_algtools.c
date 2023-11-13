@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 10:59:07 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/13 16:00:31 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/13 20:26:10 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 int	ft_minnum(int size, int *index)
 {
-	int i;
+	int	i;
 	int	min;
 	int	temp;
 
 	i = 0;
-	temp = size;
+	temp = size + 1;
 	min = size;
 	while (i < size)
 	{
-		if ((index[i] < temp) && (index[i] > 0))
+		if ((index[i] < temp))
 		{
 			temp = index[i];
 			min = i;
@@ -35,7 +35,7 @@ int	ft_minnum(int size, int *index)
 
 int	ft_maxnum(int chsize, int *index)
 {
-	int i;
+	int	i;
 	int	max;
 	int	temp;
 
@@ -67,7 +67,7 @@ void	ft_cheatingtool(int size, int *index, int min)
 
 void	ft_cheatingtool2(int size, int *index, int min)
 {
-	while (min < size - 1)
+	while (min < size)
 	{
 		ft_rra(size, index);
 		min++;
@@ -76,7 +76,7 @@ void	ft_cheatingtool2(int size, int *index, int min)
 
 int	ft_numsize(int *index)
 {
-	int size;
+	int	size;
 
 	size = 0;
 	while (index[size])

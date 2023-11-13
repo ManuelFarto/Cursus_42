@@ -6,7 +6,7 @@
 #    By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 16:45:09 by mafarto-          #+#    #+#              #
-#    Updated: 2023/11/13 15:25:39 by mafarto-         ###   ########.fr        #
+#    Updated: 2023/11/13 17:47:31 by mafarto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ INCLUDE = push_swap.h
 
 CC = gcc
 
-CFLAGS =  -Werror -Wall -Wextra -g3 -fsanitize=address
+CFLAGS =  -Werror -Wall -Wextra -g3 #-fsanitize=address
 
 CCLEAR = clear
 

@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 10:41:55 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/09 01:12:18 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/13 17:49:29 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	ft_rrb(int size, int *stackb)
 	stackb[0] = temp;
 	write(1, "rrb\n", 4);
 }
-
 
 void	ft_pb(int size, int *index, int *stackb)
 {
