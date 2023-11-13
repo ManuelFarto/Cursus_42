@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 12:57:54 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/09 02:20:04 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/13 16:04:28 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,12 @@ void	ft_sb(int *stackb);
 void	ft_rb(int size, int *stackb);
 void	ft_rrb(int size, int *stackb);
 void	ft_pa(int size, int *stackb, int *index);
+int		ft_minnum(int size, int *index);
+int		ft_maxnum(int chsize, int *index);
+int		ft_numsize(int *index);
+void	ft_cheatingtool(int size, int *index, int min);
+void	ft_cheatingtool2(int size, int *index, int min);
+void	ft_takeout(int chsize, int numpos, int *index, int *stackb);
+int	ft_outmoves(int chsize, int numpos);
 
 #endif

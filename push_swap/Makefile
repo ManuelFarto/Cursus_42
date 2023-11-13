@@ -6,7 +6,7 @@
 #    By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/04 16:45:09 by mafarto-          #+#    #+#              #
-#    Updated: 2023/11/09 02:31:43 by mafarto-         ###   ########.fr        #
+#    Updated: 2023/11/13 15:25:39 by mafarto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,8 @@ SRCS	=	main.c\
 			ft_alg.c\
 			ft_movea.c\
 			ft_moveb.c\
+			ft_algtools.c\
+			ft_hundred.c\
 
 OBJ	= $(SRCS:.c=.o)
 

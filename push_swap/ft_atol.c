@@ -40,7 +40,7 @@ int	ft_numover(long *nums, int size)
 	int	i;
 
 	i = 0;
-	while (size - 1 > i)
+	while (size > i)
 	{
 		if (nums[i] < -2147483648L || nums[i] > 2147483647L)
 		{

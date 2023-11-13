@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 10:41:39 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/09 01:12:05 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/13 13:09:31 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,13 @@ void	ft_ra(int size, int *index)
 	while (size > i)
 	{
 		index[i - 1] = index[i];
+		if (i == size - 1 || index[i + 1] == 0)
+		{
+			index[i] = temp;
+			break ;
+		}
 		i++;
 	}
-	index[size - 1] = temp;
 	write(1, "ra\n", 3);
 }
 
@@ -42,8 +46,16 @@ void	ft_rra(int size, int *index)
 	int	temp;
 	int	i;
 
-	temp = index[size - 1];
 	i = size - 1;
+	while (i > 0)
+	{
+		if (index[i] != 0)
+		{
+			temp = index[i];
+			break ;
+		}
+		i--;
+	}
 	while (0 < i)
 	{
 		index[i] = index[i - 1];

@@ -32,9 +32,10 @@ void	ft_rb(int size, int *stackb)
 	while (size > i)
 	{
 		stackb[i - 1] = stackb[i];
+		if (i == size - 1 || stackb[i + 1] == 0)
+			stackb[i] = temp;
 		i++;
 	}
-	stackb[size - 1] = temp;
 	write(1, "rb\n", 3);
 }
 
@@ -43,7 +44,16 @@ void	ft_rrb(int size, int *stackb)
 	int	temp;
 	int	i;
 
-	temp = stackb[size - 1];
+	i = size - 1;
+	while (i > 0)
+	{
+		if (stackb[i] != 0)
+		{
+			temp = stackb[i];
+			break ;
+		}
+		i--;
+	}
 	i = size - 1;
 	while (0 < i)
 	{

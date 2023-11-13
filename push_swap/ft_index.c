@@ -19,7 +19,7 @@ int	ft_isorder(int size, int *index)
 	i = 1;
 	while (size > i)
 	{
-		if (index[i] != i)
+		if (index[i] < index[i - 1] && index[i] != 0)
 			return (0);
 		i++;
 	}	
