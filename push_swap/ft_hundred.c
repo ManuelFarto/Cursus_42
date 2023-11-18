@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:25:50 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/13 22:02:15 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/18 17:47:29 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,38 +21,27 @@ int	ft_outmoves(int chsize, int numpos)
 
 void	ft_takeout(int chsize, int numpos, int *index, int *stackb)
 {
-	int	ismin;
-
-	ismin = 0;
-	printf("pos--->%d\n", numpos);
-	printf("pos minimiun--->%d\n", ft_minnum(chsize, stackb));
-	
 	while (chsize > 0)
 	{
-		numpos = ft_minnum(chsize, stackb);
-		if (index[0] < stackb[0])
-		{
-			ismin = 1;
-		}
-		
+		numpos = ft_minnum(ft_numsize(index) + ft_numsize(stackb), stackb);
 		if (numpos <= chsize / 2)
 		{
 			while (numpos-- > 0)
-				ft_rrb(chsize, stackb);
+				ft_rb(chsize, stackb);
 		}
 		else
 		{
-			while (numpos++ <= chsize)
-				ft_rb(chsize, stackb);
+			while (numpos++ < chsize)
+				ft_rrb(chsize, stackb);
 		}
-		if (ismin == 1)
+		if (ft_isorder(ft_numsize(index) + ft_numsize(stackb), index)
+			== 0 && index[0] < stackb[0])
 		{
-			ft_ra(ft_numsize(index) + ft_numsize(stackb), index);
-			ismin = 0;
+			ft_ra(ft_numsize(index), index);
 		}
 		ft_pa(ft_numsize(index) + ft_numsize(stackb), stackb, index);
-		for(int x = 0; x < ft_numsize(index) + ft_numsize(stackb); x++)
-			printf("conchi %d || stackb %d\n", index[x], stackb[x]);
+		// for(int x = 0; x < ft_numsize(index) + ft_numsize(stackb); x++)
+			// //printf("conchi %d || stackb %d\n", index[x], stackb[x]);
 		chsize--;
 	}
 	if (chsize == 0)

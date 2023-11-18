@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 10:35:19 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/13 22:04:14 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/18 17:39:02 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,24 +74,12 @@ void	ft_algbig(int size, int *index, int *stackb, int chunk)
 		ft_takeout(chsize, ft_minnum(chsize, stackb), index, stackb);
 	else
 		ft_takeout(chsize, ft_maxnum(chsize, stackb), index, stackb);
-	chsize = size;
-	temp = size / chunk;
-	while (temp < chsize)
+	while (temp < size)
 	{
-		if (index[0] <= chsize)
-		{
-			ft_pb(size, index, stackb);
-			temp++;
-		}
-		else
-			ft_ra(size, index);
+		ft_pb(size, index, stackb);
+		temp++;
 	}
-	
-	ft_takeout(size / chunk, ft_maxnum(size / chunk, stackb), index, stackb);
-	if (ft_numsize(stackb) == 0)
-		ft_ra(size, index);
-	for(int x = 0; x < size; x++)
-		printf("index %d || stackb %d\n", index[x], stackb[x]);
+	ft_takeout(chsize, ft_minnum(size, stackb), index, stackb);
 }
 
 void	ft_alg(int size, int *index)

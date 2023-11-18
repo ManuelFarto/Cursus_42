@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 10:59:07 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/13 20:26:10 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/18 07:59:56 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	ft_minnum(int size, int *index)
 	min = size;
 	while (i < size)
 	{
+		if (index[i] == 0)
+			return (min);
 		if ((index[i] < temp))
 		{
 			temp = index[i];
