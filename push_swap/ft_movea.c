@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 10:41:39 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/13 13:09:31 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/19 02:46:23 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	ft_sa(int *index)
 	index[1] = temp;
 	write(1, "sa\n", 3);
 }
+
 void	ft_ra(int size, int *index)
 {
 	int	temp;

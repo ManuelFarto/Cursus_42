@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 11:41:04 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/18 05:11:41 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/19 02:44:59 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int	*ft_index(int size, long *nums)
 	j = 0;
 	while (j < size)
 	{
-		//printf("-> %ld", nums[j]);
 		i = j + 1;
 		while (i < size)
 		{

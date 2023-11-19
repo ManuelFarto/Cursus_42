@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 10:59:07 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/18 07:59:56 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/19 05:05:01 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	ft_numsize(int *index)
 	int	size;
 
 	size = 0;
-	while (index[size])
+	while (index[size] != 0)
 		size++;
 	return (size);
 }
