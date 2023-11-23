@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 10:35:19 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/19 05:58:27 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:26:57 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,19 +56,37 @@ void	ft_algbig(int size, int *index, int *stackb, int chunk)
 {
 	int	chsize;
 	int	temp;
+	int	count;
 
+	count = 0;
+	temp = 0;
+	if (chunk < 2)
+		chunk = 2;
 	chsize = size / chunk;
-	temp = ft_takeon(size, chsize, index, stackb);
-	ft_takeout(size, chsize, index, stackb);
-	while (temp < size)
+	while (count < chunk)
 	{
-		ft_pb(size, index, stackb);
-		temp++;
+		if (size % 2 != 0 && count + 1 == chunk)
+		{	
+			chsize = size;
+		}
+		while (temp < chsize)
+		{
+			if (index[0] <= chsize)
+			{
+				ft_pb(size, index, stackb);
+				temp++;
+			}
+			else
+			{
+				ft_ra(size, index);
+			}
+		}
+		chsize += size / chunk;
+		count++;
 	}
-	if (size % 2 != 0)
-		ft_takeout(size, chsize + 1, index, stackb);
-	else
-		ft_takeout(size, chsize, index, stackb);
+	if (stackb[0] != 0)
+		ft_takeout(size, index, stackb);
+	
 }
 
 void	ft_alg(int size, int *index)
@@ -88,7 +106,7 @@ void	ft_alg(int size, int *index)
 	else if (size == 4 || size == 5)
 		return (ft_algfive(size, index, stackb), free(stackb));
 	else if (size > 5 && size <= 100)
-		return (ft_algbig(size, index, stackb, 2), free(stackb));
+		return (ft_algbig(size, index, stackb, size / 25), free(stackb));
 	else
-		return (ft_algbig(size, index, stackb, 2), free(stackb));
+		return (ft_algbig(size, index, stackb, size / 50), free(stackb));
 }

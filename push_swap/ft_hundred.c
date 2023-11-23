@@ -6,11 +6,12 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 15:25:50 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/19 05:32:33 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/23 13:15:07 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"push_swap.h"
+#include <stdio.h>
 
 int	ft_outmoves(int chsize, int numpos)
 {
@@ -19,46 +20,44 @@ int	ft_outmoves(int chsize, int numpos)
 	return (numpos);
 }
 
-int	ft_takeon(int size, int chsize, int *index, int *stackb)
+/* int	ft_takeon(int size, int chsize, int *index, int *stackb)
 {
 	int	temp;
 
 	temp = 0;
 	while (temp < chsize)
 	{
-		if (index[0] <= chsize)
-		{
-			ft_pb(size, index, stackb);
-			temp += 1;
-		}
-		else
-			ft_ra(size, index);
+		
 	}
 	return (temp);
-}
+} */
 
-void	ft_takeout(int size, int chsize, int *index, int *stackb)
+void	ft_takeout(int size, int *index, int *stackb)
 {
 	int	numpos;
+	int	count;
 
 	numpos = 0;
-	while (chsize > 0)
+	count = size;
+	while (count > 0)
 	{
 		numpos = ft_minnum(size, stackb);
-		if (numpos <= chsize / 2)
+		if (numpos <= size / 2)
 		{
 			while (numpos-- > 0)
-				ft_rb(chsize, stackb);
+				ft_rb(count, stackb);
 		}
 		else
 		{
-			while (numpos++ < chsize)
-				ft_rrb(chsize, stackb);
+			while (numpos++ < count)
+			{
+				ft_rrb(count, stackb);
+			}
 		}
 		if (ft_isorder(size, index) == 0 && index[0] < stackb[0])
 			ft_ra(size, index);
 		ft_pa(size, stackb, index);
-		chsize--;
+		count--;
 	}
 	ft_ra(size, index);
 }
