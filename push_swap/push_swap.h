@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 12:57:54 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/23 12:32:18 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/25 03:58:11 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,8 @@ int		ft_maxnum(int chsize, int *index);
 int		ft_numsize(int *index);
 void	ft_cheatingtool(int size, int *index, int min);
 void	ft_cheatingtool2(int size, int *index, int min);
-void	ft_takeout(int size, int *index, int *stackb);
+void	ft_takeout(int size, int chunk, int *index, int *stackb);
 int		ft_takeon(int size, int chsize, int *index, int *stackb);
-int		ft_outmoves(int chsize, int numpos);
 int		ft_minmoves(int size, int chsize, int *index);
 
 #endif

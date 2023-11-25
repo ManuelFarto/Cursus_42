@@ -6,7 +6,7 @@
 /*   By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 10:35:19 by mafarto-          #+#    #+#             */
-/*   Updated: 2023/11/23 13:26:57 by mafarto-         ###   ########.fr       */
+/*   Updated: 2023/11/25 06:59:05 by mafarto-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,7 @@ void	ft_algbig(int size, int *index, int *stackb, int chunk)
 		count++;
 	}
 	if (stackb[0] != 0)
-		ft_takeout(size, index, stackb);
-	
+		ft_takeout(size, chunk, index, stackb);
 }
 
 void	ft_alg(int size, int *index)
