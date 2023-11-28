@@ -5,43 +5,59 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mafarto- <mafarto-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/10/30 20:11:12 by mafarto-          #+#    #+#              #
-#    Updated: 2022/11/12 14:39:00 by mafarto-         ###   ########.fr        #
+#    Created: 2023/09/04 16:45:09 by mafarto-          #+#    #+#              #
+#    Updated: 2023/11/25 09:10:32 by mafarto-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= libftprintf.a
+NAME	= push_swap
 
-INCLUDE = ft_printf.h
+INCLUDE = push_swap.h
 
 CC = gcc
 
-CFLAGS =  -Werror -Wall -Wextra -g
+CFLAGS =  -Werror -Wall -Wextra -g -fsanitize=address
+
+CCLEAR = clear
 
 RM = rm -f
 
-SRCS	=	ft_printf.c\
-			ft_putchar.c\
-			ft_putstr.c\
-			ft_putnbr.c\
-			ft_strlen.c\
-			ft_putpunt.c\
+WHT = \033[1;37m
+
+SRCS	=	main.c\
+			ft_error.c\
+			push_swap.c\
+			ft_split.c\
+			ft_atol.c\
+			ft_free.c\
+			ft_index.c\
+			ft_alg.c\
+			ft_movea.c\
+			ft_moveb.c\
+			ft_algtools.c\
+			ft_hundred.c\
 
 OBJ	= $(SRCS:.c=.o)
 
 .o: %.c
-	$(CC) -c $(CFLAGS) $^
+	$(CC) -c $(CFLAGS) $^ -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJ) $(INCLUDE)
-	ar rcs $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CCLEAR)
+	@echo "$(WHT)Push swap is ready."
 
 clean:
 	$(RM) $(OBJ)
+	$(CCLEAR)
+	@echo "$(WHT)Removing OBJ..."
 
 fclean: clean
 	$(RM) $(NAME)
+	$(CCLEAR)
+	@echo "$(WHT)Removing ALL..."
 
 re: fclean all
 
